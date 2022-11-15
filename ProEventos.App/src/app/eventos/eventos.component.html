@@ -1,0 +1,65 @@
+<main class="container">
+  <div class="p-5 mb-4">
+    <div class="conatiner-fluid py-5">
+      <h1 class="display-5 fw-bold">Eventos</h1>
+      <hr>
+      <form action="" class="form-inline">
+        <div class="form mb-2">
+          <input
+            type="text"
+            class="form-control mr-2"
+            placeholder="buscar"
+            [(ngModel)]="searchData"
+            name="search"
+          />
+        </div>
+      </form>
+      <table class="table table-stripped">
+        <thead class="table-dark">
+          <tr class="text-center">
+            <th>
+              <button type="button" class="btn btn-outline-light btn-sm mx-2"
+              (click)="showImages()">
+                <i class="fa-solid fa-eye"></i>
+                {{!showImage ? 'Exibir' : 'Ocultar'}}
+              </button>
+            </th>
+            <th>#</th>
+            <th>Tema</th>
+            <th>Data</th>
+            <th>Palestrante</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="events && events.length">
+          <tr class="text-center" *ngFor="let event of eventsFilters">
+            <td>
+              <img [collapse]="!showImage" [isAnimated]="true"
+                src="../../assets/images/{{event.ds_Imagem}}"alt=""
+                width="150px" margin="2px">
+            </td>
+            <td>{{event.id_Evento}}</td>
+            <td>{{event.ds_Tema}}</td>
+            <td>{{event.dt_Evento}}</td>
+            <td>{{event.ds_Palestrante}}</td>
+            <td>{{event.ds_Cidade}}</td>
+            <td>{{event.cd_Estado}}</td>
+            <td>
+              <button type="button" class="btn btn-outline-dark btn-sm mx-2">Detalhes</button>
+              <button type="button" class="btn btn-outline-danger btn-sm">Deletar</button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot *ngIf="!events.length">
+          <tr>
+            <td colspan="8">
+              <h4>Nenhum evento encontrado!</h4>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</main>
