@@ -1,7 +1,6 @@
 <main class="container">
   <div class="p-5 mb-4">
-    <div class="conatiner-fluid py-5">
-      <h1 class="display-5 fw-bold">Eventos</h1>
+      <app-titulos [titulo]="'Eventos'"></app-titulos>
       <hr>
       <form action="" class="form-inline">
         <div class="form mb-2">
@@ -20,7 +19,7 @@
             <th>
               <button type="button" class="btn btn-outline-light btn-sm mx-2"
               (click)="showImages()">
-                <i class="fa-solid fa-eye"></i>
+                <i class="{{!showImage ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'}}"></i>
                 {{!showImage ? 'Exibir' : 'Ocultar'}}
               </button>
             </th>
@@ -42,13 +41,19 @@
             </td>
             <td>{{event.id_Evento}}</td>
             <td>{{event.ds_Tema}}</td>
-            <td>{{event.dt_Evento}}</td>
+            <td>{{event.dt_Evento | dateTimeFormat}}</td>
             <td>{{event.ds_Palestrante}}</td>
             <td>{{event.ds_Cidade}}</td>
             <td>{{event.cd_Estado}}</td>
             <td>
-              <button type="button" class="btn btn-outline-dark btn-sm mx-2">Detalhes</button>
-              <button type="button" class="btn btn-outline-danger btn-sm">Deletar</button>
+              <button type="button" class="btn btn-outline-primary btn-sm mx-2">
+                <i class="fa-solid fa-pen-to-square"></i>
+                Detalhes
+              </button>
+              <button type="button" class="btn btn-outline-danger btn-sm" (click)="openModal(template)">
+                <i class="fa-solid fa-trash"></i>
+                Excluir
+              </button>
             </td>
           </tr>
         </tbody>
@@ -61,5 +66,12 @@
         </tfoot>
       </table>
     </div>
-  </div>
 </main>
+
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Tem certeza que deseja excluir?</p>
+    <button type="button" class="btn btn-default" (click)="confirm()" >Sim</button>
+    <button type="button" class="btn btn-primary" (click)="decline()" >Não</button>
+  </div>
+</ng-template>
