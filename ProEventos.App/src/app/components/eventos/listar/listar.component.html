@@ -1,0 +1,80 @@
+<main class="container">
+  <div class="p-2 mb-4">
+    <hr class="text-dark">
+    <form action="" class="d-flex">
+      <div class="flex-fill pe-4">
+        <div class="form mb-2">
+          <input
+            type="text"
+            class="form-control mr-2"
+            placeholder="buscar"
+            [(ngModel)]="searchData"
+            name="search"
+          />
+        </div>
+      </div>
+      <div>
+        <a class="d-flex btn btn-outline-success" routerLink="/eventos/adicionar" role="button">
+          <i class="fa-solid fa-circle-plus my-1"></i>
+          <b class="ms-2 d-none d-sm-block">Adicionar</b>
+        </a>
+      </div>
+    </form>
+    <table class="table table-stripped table-hover">
+      <thead class="table-dark">
+        <tr class="text-center">
+          <th class="d-none d-md-table-cell">
+            <button type="button" class="btn btn-outline-light btn-sm"
+            (click)="showImages()">
+              <i class="{{!showImage ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'}}"></i>
+              {{!showImage ? 'Exibir' : 'Ocultar'}}
+            </button>
+          </th>
+          <th class="d-none d-md-none d-lg-table-cell">#</th>
+          <th>Tema</th>
+          <th class="d-none d-md-table-cell">Data</th>
+          <th class="d-none d-md-none d-lg-table-cell">Palestrante</th>
+          <th class="d-none d-md-table-cell">Cidade</th>
+          <th class="d-none d-md-table-cell">Estado</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="events && events.length">
+        <tr class="text-center" *ngFor="let event of eventsFilters"
+        (click)="eventoById(event.id_Evento)" style="cursor: pointer;">
+          <td class="d-none d-md-table-cell">
+            <img [collapse]="!showImage" [isAnimated]="true"
+              src="../../assets/images/{{event.ds_Imagem}}"alt=""
+              width="180px">
+          </td>
+          <td class="d-none d-md-none d-lg-table-cell">{{event.id_Evento}}</td>
+          <td>{{event.ds_Tema}}</td>
+          <td class="d-none d-md-table-cell">{{event.dt_Evento | dateTimeFormat}}</td>
+          <td class="d-none d-md-none d-lg-table-cell">{{event.ds_Palestrante}}</td>
+          <td class="d-none d-md-table-cell">{{event.ds_Cidade}}</td>
+          <td class="d-none d-md-table-cell">{{event.cd_Estado}}</td>
+          <td>
+              <button type="button" class="btn btn-outline-danger btn-sm mx-2" (click)="openModal(template)">
+                <i class="fa-solid fa-trash fs-5"></i>
+              </button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot *ngIf="!events.length">
+        <tr>
+          <td colspan="8">
+            <h4>Nenhum evento encontrado!</h4>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</main>
+
+<ng-template #template>
+<div class="modal-body text-center">
+  <p>Tem certeza que deseja excluir?</p>
+  <button type="button" class="btn btn-default" (click)="confirm()" >Sim</button>
+  <button type="button" class="btn btn-primary" (click)="decline()" >Não</button>
+</div>
+</ng-template>
