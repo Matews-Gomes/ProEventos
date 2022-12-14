@@ -2,16 +2,16 @@ export interface Evento {
   id_Evento: number;
   dt_Evento?: Date;
   ds_Tema: string;
-  qtd_pessoas: number;
+  qtd_Pessoas: number;
   ds_Imagem: string;
   id_Palestrante: number;
   ds_Palestrante: string;
-  id_Redesocial: number;
-  ds_Redesocial: string;
-  ds_Urlredesocial: string;
+  id_RedeSocial: number;
+  ds_RedeSocial: string;
+  ds_UrlRedeSocial: string;
   ds_Logradouro: string;
   ds_Numero: string;
-  ds_Complemento: string;
+  ds_Complemento?: string;
   ds_Cep: string;
   ds_Bairro: string;
   id_Cidade: number;
@@ -27,4 +27,5 @@ export interface Evento {
   ds_Telefone: string;
   ds_Celular: string;
   ds_Email: string;
+
 }

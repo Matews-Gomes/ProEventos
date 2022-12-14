@@ -1,15 +1,52 @@
 <div class="row mt-4">
-
-	<div class="col-md-6 d-none d-md-block" style="height: 450px;">
+	<div class="col-md-6 d-none d-md-block" style="height: 350px;">
 		<div class="text-center col-md-12 my-auto side-heder">
 			<h1>Cadastro de Usuário</h1>
-			<img src="../../../../assets/registerImage.png" class="my-4" alt="" width="400px">
+			<img src="../../../../assets/images/registerImage.png" class="my-4" alt="" width="350px">
 		</div>
 	</div>
-
-	<div class="col-md-6">
-
-		<!--FORM VAI AQUI-->
-
+	<div class="col-md-6 mt-4">
+    <div class="card rounded p-3">
+      <form class="row g-3">
+      <div class="pb-2 d-block d-md-none">
+        <h3 class="border-bottom">Cadastro de Usuário</h3>
+      </div>
+      <div class="col-12">
+        <label for="inputAddress" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="Nome">
+      </div>
+      <div class="col-12">
+        <label for="inputEmail4" class="form-label">Email</label>
+        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      </div>
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Senha</label>
+        <input type="password" class="form-control" id="inputPassword4" placeholder="Senha">
+      </div>
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Confirmar Senha</label>
+        <input type="password" class="form-control" id="inputPassword5" placeholder="Confirmar Senha">
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck">
+          <label class="form-check-label" for="gridCheck">
+            Concordo com os <a href="#">Termos de Uso</a>
+          </label>
+        </div>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-success w-100">
+          <i class="fa-solid fa-floppy-disk me-2"></i>
+          Registrar
+        </button>
+      </div>
+      <div class="col-12 text-center">
+        <a href="/usuarios/login" class="btn btn-link btn-block">
+          Já Sou Cadastrado!
+        </a>
+      </div>
+      </form>
+    </div>
 	</div>
 </div>

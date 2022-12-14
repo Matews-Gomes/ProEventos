@@ -1,45 +1,108 @@
 <main class="container">
-  <form>
-    <div class="p-3">
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <label>Tema</label>
-          <input type="text" class="form-control" placeholder="Insira o Tema">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-8">
-          <label>Local</label>
-          <input type="text" class="form-control" placeholder="">
-        </div>
-        <div class="form-group col-md-4">
-          <label>Data e Hora</label>
-          <input type="datetime" class="form-control" placeholder="">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-2">
-          <label>Qtd Pessoas</label>
-          <input type="text" class="form-control is-invalid" placeholder="">
-        </div>
-        <div class="form-group col-md-4">
-          <label>Telefone</label>
-          <input type="text" class="form-control" placeholder="(000) 90000-0000">
-        </div>
+  <app-titulos [titulo]="'Eventos'" [botaoListar]="true"></app-titulos>
+  <hr class="text-dark">
+  <div class="card rounded p-3">
+    <form [formGroup]="form">
+      <div class="row">
         <div class="form-group col-md-6">
-          <label>Email</label>
-          <input type="text" class="form-control" placeholder="e-mail">
+          <label>Tema</label>
+          <input type="text" class="form-control"
+          [ngClass]="{'is-invalid': control.ds_Tema.errors && control.ds_Tema.touched }"
+          formControlName="ds_Tema" placeholder="Insira o Tema">
+        <div *ngIf="control.ds_Tema.errors?.required" class="invalid-feedback text-danger">
+          O tema é obrigatório
+        </div>
+        <div *ngIf="control.ds_Tema.errors?.minlength" class="invalid-feedback text-danger">
+          Este campo precisa ter no mínimo 4 caracteres
+        </div>
+        <div *ngIf="control.ds_Tema.errors?.maxlength" class="invalid-feedback text-danger">
+          Este campo só pode conter no máximo 50 caracteres
+        </div>
+        </div>
+        <div class="col-md-6">
+          <label>Imagem</label>
+          <input type="text" class="form-control"
+          [ngClass]="{'is-invalid': control.ds_Imagem.errors && control.ds_Imagem.touched }"
+          formControlName="ds_Imagem" placeholder="Insira a imagem">
+        <div *ngIf="control.ds_Imagem.errors?.required" class="invalid-feedback text-danger">
+          A imagem é obrigatório
+        </div>
         </div>
       </div>
-    </div>
-    <div class="card-footer">
-      <div class="d-flex justify-content-end">
-        <button class="btn btn-success me-4">
-          <!--<span class="spinner-border spinner-border-sm me-1"></span>-->
-          <i class="fa-solid fa-floppy-disk me-1"></i>
-          Salvar Evento
-        </button>
+      <div class="row my-4">
+        <div class="form-group col-md-4">
+          <label>Logradouro</label>
+          <input type="text" class="form-control"
+          [ngClass]="{'is-invalid': control.ds_Logradouro.errors && control.ds_Logradouro.touched}"
+          formControlName="ds_Logradouro" placeholder="Rua...">
+        <div *ngIf="control.ds_Logradouro.errors?.required" class="invalid-feedback text-danger">
+          O logradouro é obrigatório
+        </div>
+        <div *ngIf="control.ds_Logradouro.errors?.minlength" class="invalid-feedback text-danger">
+          Este campo precisa ter no mínimo 5 caracteres
+        </div>
+        <div *ngIf="control.ds_Logradouro.errors?.maxlength" class="invalid-feedback text-danger">
+          Este campo só pode conter no máximo 120 caracteres
+        </div>
+        </div>
+        <div class="col-md-4">
+          <label>Número</label>
+          <input type="text" class="form-control"
+          [ngClass]="{'is-invalid': control.ds_Numero.errors && control.ds_Numero.touched}"
+          formControlName="ds_Numero" placeholder="123...">
+        <div *ngIf="control.ds_Numero.errors?.required" class="invalid-feedback text-danger">
+          O número é obrigatório
+        </div>
+        </div>
+        <div class="col-md-4">
+          <label>Bairro</label>
+          <input type="text" class="form-control"
+          [ngClass]="{'is-invalid': control.ds_Bairro.errors && control.ds_Bairro.touched}"
+          formControlName="ds_Bairro" placeholder="Bairro...">
+        <div *ngIf="control.ds_Bairro.errors?.required" class="invalid-feedback text-danger">
+          O bairro é obrigatório
+        </div>
+        </div>
       </div>
-    </div>
-  </form>
+      <div class="col-12 mt-4">
+        <label class="form-label">Complemento</label>
+      <textarea type="text" class="form-control"
+      [ngClass]="{'is-invalid': control.ds_Complemento.errors}"
+        formControlName="ds_Complemento" rows="3" placeholder="Quando nescessário...">
+      </textarea>
+        <div *ngIf="control.ds_Complemento.errors?.maxlength" class="invalid-feedback text-danger">
+          Este campo só pode conter no máximo 150 caracteres
+        </div>
+      </div>
+      <div class="row my-4">
+        <div class="form-group col-md-4">
+          <label>Cep</label>
+          <input type="text" class="form-control"
+          [ngClass]="{'is-invalid': control.ds_Cep.errors && control.ds_Cep.touched}"
+          formControlName="ds_Cep" placeholder="Cep...">
+        <div *ngIf="control.ds_Cep.errors?.required" class="invalid-feedback text-danger">
+          O cep é obrigatório
+        </div>
+        </div>
+        <div class="col-md-4">
+          <label>Cidade</label>
+          <input type="text" class="form-control"
+          [ngClass]="{'is-invalid': control.id_Cidade.errors && control.id_Cidade.touched}"
+          formControlName="id_Cidade" placeholder="Cidade...">
+        <div *ngIf="control.id_Cidade.errors?.required" class="invalid-feedback text-danger">
+          A cidade é obrigatório
+        </div>
+        </div>
+        <div class="col-md-4">
+          <label>Estado</label>
+          <input type="text" class="form-control"
+          [ngClass]="{'is-invalid': control.id_Estado.errors && control.id_Estado.touched}"
+          formControlName="id_Estado" placeholder="Estado...">
+        <div *ngIf="control.id_Estado.errors?.required" class="invalid-feedback text-danger">
+          O estado é obrigatório
+        </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </main>

@@ -1,7 +1,7 @@
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { Evento } from '../../../models/Evento';
-import { EventoService } from 'src/app/services/evento.service';
+import { Evento } from '@app/models/Evento';
+import { EventoService } from '@app/services/evento.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
@@ -70,7 +70,7 @@ export class ListarComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
+    this.modalRef = this.modalService.show(template, {class: 'modal-lg'});
   }
 
   confirm(): void {

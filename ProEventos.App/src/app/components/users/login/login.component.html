@@ -1,7 +1,5 @@
-<div class="d-flex align-items-center vh-100">
-
+<!--<div class="d-flex align-items-center vh-100">
 	<div class="mx-auto text-center shadow-sm bg-white rounded p-5 my-5">
-
 		<form class="form-signin">
 			<i class="fa fa-users mb-2"></i>
 			<h1 class="h3 mb-3 font-weight-normal">Entrar com</h1>
@@ -13,7 +11,41 @@
 			<p class="mt-4 mb-2 text-muted">Não tem login? Cadastre-se abaixo</p>
 			<a class="btn btn-lg btn-link btn-block">Quero me cadastrar</a>
 		</form>
-
 	</div>
+</div>-->
 
+<div class="container">
+  <div class="d-flex justify-content-center vh-80 p-5 my-5">
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="../../../../assets/images/login.png" class="img-fluid rounded-start mt-5 ms-2" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title fs-4">Login</h5>
+            <form class="card-text">
+              <div class="form-floating">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email</label>
+              </div>
+              <div class="form-floating mt-1">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Senha</label>
+              </div>
+                <button class="w-100 btn btn-lg btn-success mt-2 me-auto" type="submit">
+                  <i class="fa-solid fa-right-to-bracket me-2"></i>
+                  Entrar
+                </button>
+                <p class="card-text"><small class="text-muted"><a href="">Esqueci minha senha!</a></small></p>
+                <p class="mt-4 mb-2 text-white">Não tem login? Cadastre-se abaixo</p>
+            </form>
+            <a href="/usuarios/registrar-se" class="btn btn-lg btn-link btn-block">
+              Quero me Cadastrar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

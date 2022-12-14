@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm" *ngIf="showMenu()">
   <div class="container">
     <a class="navbar-brand fs-5" routerLink="dashboard">
       <i class="fa-solid fa-calendar-days d-inline-block align-text-top fs-5"></i>
@@ -26,11 +26,11 @@
             Matews
           </a>
           <div *dropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" routerLink="perfil">
+            <a class="dropdown-item" routerLink="usuarios/perfil">
               Perfil
             </a>
             <div role="separator" class="divider"></div>
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item" routerLink="usuarios/login">
               Sair
             </a>
           </div>
